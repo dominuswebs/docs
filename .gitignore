@@ -1,0 +1,9 @@
+.vscode
+*Zone.Identifier
+.DS_Store
+player/dist/media
+node_modules
+player/dist/ddmb-content
+player/dist/ddmb-data
+player/dist/ddmb-data-old
+tmp
