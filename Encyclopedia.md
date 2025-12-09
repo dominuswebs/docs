@@ -80,7 +80,10 @@
             grep '\.log$' – filters files ending in .log.
             $(...) – substitutes the filtered list as arguments to rm.
 
-    
+    Search for a string inside files. Only search in folders whose names start with abc_. Get a list of folder names (not file names) that contain at least one matching file.
+
+        rg "your_search_string" --files-with-matches -g "abc_*/**" | cut -d'/' -f1 | sort -u
+
 
 # Docker
 
@@ -703,3 +706,16 @@ Cropping an webm while keeping the alpha channel - what a pain
 Update system hostname ( for wireless connection )
 
     sudo hostnamectl set-hostname my-ubuntu-server
+
+
+# AWS
+
+    Costs
+
+        Set budget 
+
+        Set cost anomaly
+
+    EC2 instance
+
+        ssh ubuntu@15.134.209.145
