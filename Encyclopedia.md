@@ -66,7 +66,7 @@
 
         kill -9 <PID>
 
-    Find previous commands (bck-i-search)
+    Find previous commands (bck-i-search), keep repeating to cycle
 
         ctrl + r
 
@@ -80,7 +80,51 @@
             grep '\.log$' – filters files ending in .log.
             $(...) – substitutes the filtered list as arguments to rm.
 
+    SSH and SCP
+
+        ssh user@remote_host
+
+        scp
+
+            from local to remote - the : is needed even if it is just ~ ( user home directory)
+
+                scp /path/to/local/file.txt username@remote_host:/path/on/remote/server/
+
+            from remote to local - local path can be .
+
+                scp username@remote_host:/path/on/remote/server/file.txt /path/to/local/
+
+            use -r to copy directory recursively
     
+    rsync
+
+        similar to scp but a bit more powerful
+
+            local -> remote
+
+                rsync -av file.txt user@host:/destination/path/
+
+                    -a = “archive” (recursive, preserves permissions, timestamps, etc.)
+                    -v = verbose
+            
+            remote -> local
+
+                rsync -av user@host:/destination/path/file.txt .
+            
+
+        Advantages
+
+            If you run the same command again, it only transfers the differences, not everything again.
+
+            Subtle but important trailing slash behavior
+
+                rsync -av folder user@host:/dest/
+
+                    creates /dest/folder
+
+                rsync -av folder/ user@host:/dest/
+
+                    copies contents of folder into /dest/
 
 # Docker
 
