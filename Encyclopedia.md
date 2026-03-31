@@ -766,3 +766,51 @@ Update system hostname ( for wireless connection )
     EC2 instance
 
         ssh ubuntu@15.134.209.145
+
+# Network
+
+  ## DNS
+
+        To resolve a domain name:
+
+        The browser checks its cache. If it can't, it asks the OS to resolve the domain name.
+
+        OS checks its local cache. If it can't, it asks the DNS resolver ( our ISP ).
+
+        The DNS resolver checks its cache. If it can't find it, it asks 1 of 13 root nameservers ( at random ). These are named A to M.
+
+        The root nameserver provides the Top Level Domain server reponsible about what we are trying to reach. (.com, .org, .net) 
+
+        The TLD then points us to the Authorative Nameserver that knows about the domain we are trying to reach.
+
+        Then the whole process winds back.
+
+        Record Types:
+
+            A -> Maps a domain name to an IPv4 address
+            AAAA -> Maps a domain name to an IPv6 address
+            CNAME -> This domain is an alias for another domain name ( ww.google.com is a CNAME for google.com )
+            MX -> Specifies mail servers for a domain.
+            TXT -> Additional, text information. Used for: Email security; Domain verification; Service integrations.
+            NS -> Lists authoritative names servers for a domain.
+
+  ## Domain / Subdomain
+
+    The root domain google.com (also called the apex domain) typically uses A/AAAA records (IP addresses), 
+    because DNS standards don’t allow a CNAME at the root in most setups.
+    
+    Technically, www is just a label like any other subdomain (you could have mail.google.com, api.google.com, etc.).
+
+    In the early days of the web (late ’80s–’90s), different services were separated by subdomains:
+
+        www.example.com → web server (HTTP)
+        ftp.example.com → file transfer
+        mail.example.com → email
+
+    The www folder (often called public_html, htdocs, or wwwroot) is basically a filesystem reflection of the old www subdomain convention.
+
+    Back when servers hosted multiple services, you might have had something like:
+
+        /var/www/ → files for www.example.com (the website)
+        /var/ftp/ → files for FTP
+        /var/mail/ → mail data

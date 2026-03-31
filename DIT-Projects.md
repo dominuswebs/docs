@@ -50,9 +50,13 @@
 
     IP - 10.0.0.87
 
-    # copy files
+    # copy files from remote to local
 
-    scp username@remote_host:/path/to/remote/file /path/to/local/directory
+    scp -r username@remote_host:/path/to/remote/file /path/to/local/directory
+
+    # copy files from local to remote
+
+    scp -r /path/to/local/directory username@remote_host:/path/to/remote/file 
 
 # Framework repository
 
