@@ -651,7 +651,7 @@ Similar to .gitignore: The syntax is the same, and you can use glob patterns (e.
 
 Generators
 
-Sure! A generator in programming, especially in PHP, is a special type of function that allows you to iterate over a sequence of values lazily, one at a time, without having to store all the values in memory at once.
+A generator in programming, especially in PHP, is a special type of function that allows you to iterate over a sequence of values lazily, one at a time, without having to store all the values in memory at once.
 
 Key Concepts of Generators:
 Yielding Values: Instead of returning a result all at once (like a normal function does), a generator yields values one by one. The yield keyword is used inside the generator function to "pause" the function's execution and send back a value to the caller.
